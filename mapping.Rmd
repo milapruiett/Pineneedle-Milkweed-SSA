@@ -32,7 +32,7 @@ library("maptools")
 library("rgdal")
 library("dismo")
 library("sf")
-
+library("tidyverse")
 
 ```
 
@@ -122,7 +122,7 @@ Group member 3:
 
 ```{r}
 
-
+#:)
 
 ```
 
