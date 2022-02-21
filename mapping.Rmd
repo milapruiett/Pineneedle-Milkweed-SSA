@@ -190,7 +190,7 @@ Check for obvious errors in lat/long. Remove those points if necessary.
 ```{r}
 sort(milkweedUSMX$latitude, decreasing = TRUE) [1:20]
 sort(milkweedUSMX$longitude, decreasing = TRUE) [1:20]
-wronglong<-subset(x=milkweedUSMX, longitude=0)
+wronglong<-subset(x=milkweedUSMX, longitude==0)
 milkweedUSMX<-anti_join(milkweedUSMX, wronglong)
 
 ```
