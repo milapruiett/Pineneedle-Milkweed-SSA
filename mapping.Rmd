@@ -97,7 +97,8 @@ Group member 2:
 
 ```{r}
 
-
+beeeater<-occ(query='Merops apiaster', from='gbif', limit=4000)
+beeeater
 
 ```
 
