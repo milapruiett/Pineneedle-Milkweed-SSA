@@ -169,8 +169,11 @@ Check for and filter out any occurrences in which individualCount==0
 * Tell your groupmates to pull in Slack
 
 ```{r}
+unique(milkweedUSMX$individualCount)
 
-
+zeroWeed<-subset(x=milkweedUSMX, individualCount==0)
+milkweedUSMX <- anti_join(milkweedUSMX, zeroWeed)
+milkweedUSMX
 
 
 ```
