@@ -84,6 +84,17 @@ Group member 1:
 
 ```{r}
 
+milkweedUS<-occ(query="Asclepias linaria", from="gbif", limit=4000, gbifopts = list(year="1950,2021", country="US"));
+milkweedMX<-occ(query="Asclepias linaria", from="gbif", limit=4000, gbifopts = list(year="1950,2021", country="MX"));
+
+USData<-milkweedUS$gbif$data$Asclepias_linaria
+MXData<-milkweedMX$gbif$data$Asclepias_linaria
+
+USData
+MXData
+
+milkweedUSMX<-bind_rows(USData, MXData)
+milkweedUSMX
 
 
 ```
