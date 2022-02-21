@@ -194,6 +194,11 @@ wronglong<-subset(x=milkweedUSMX, longitude==0)
 milkweedUSMX<-anti_join(milkweedUSMX, wronglong)
 
 ```
+```{r}
+namilkweed<- subset(x=milkweedUSMX, latitude=="NA")
+#because there was an NA
+milkweedUSMX<-anti_join(milkweedUSMX, namilkweed)
+```
 
 
 Group Member 4 (or 1):
@@ -204,6 +209,15 @@ Reduce data columns, and save to a CSV file
 * Push
 * Tell your groupmates to pull in Slack
 NOTE: Depending upon the size of your .csv file, you may not want to commit and push it. Your groupmates can always re-run the code to generate their own local copy.
+```{r}
+
+lessMilkweedUSMX<-select(milkweedUSMX, c(name, longitude, latitude, scientificName, year, month, day, eventDate, individualCount, elevation, stateProvince, countryCode))
+
+lessMilkweedUSMX
+```
+```{r}
+write_csv(lessMilkweedUSMX, "lessMilkweedUSMX.csv")
+```
 
 
 ### Mapping
