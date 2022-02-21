@@ -154,8 +154,7 @@ Check for and filter out any data in which occurrenceStatus=="Absent"
 * Tell your groupmates to pull in Slack
 
 ```{r}
-
-
+unique(milkweedUSMX$occurrenceStatus)
 
 
 ```
