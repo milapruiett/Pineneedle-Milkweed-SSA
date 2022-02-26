@@ -22,7 +22,7 @@ it is used only occassionally due to its relative toxicity.
 - iNaturalist
 
 ## Species Occurence Map:
-![This is an image](assets/images/MUSMXspocc.jpg)
+![Map](images/MUSMXspocc.jpg)
 
 ###### Link to GitHub Repository:
 [Mapping](mapping.Rmd)
