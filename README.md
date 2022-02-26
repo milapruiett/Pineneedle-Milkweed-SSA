@@ -22,10 +22,10 @@ it is used only occassionally due to its relative toxicity.
 - iNaturalist
 
 ## Species Occurence Map:
-![This is an image]/assets/images/MUSMXspocc.jpg
+![This is an image](/assets/images/MUSMXspocc.jpg)
 
 ###### Link to GitHub Repository:
-[](docs/mapping.Rmd)
+[Mapping](docs/mapping.Rmd)
 
 ###### References:
 Nabhan, G., S. Buckley, and H. Dial. 2015. Pollinator Plants of the Desert Southwest: Native
