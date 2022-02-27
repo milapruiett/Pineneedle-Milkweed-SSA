@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # Species Status Assessment
 
 ## Species Name: Pineneedle milkweed *Asclepias linaria*
@@ -22,7 +27,7 @@ it is used only occassionally due to its relative toxicity.
 - iNaturalist
 
 ## Species Occurence Map:
-![Map](images/MUSMXspocc.jpg)
+![Map](output/MUSMXspocc.jpg)
 
 ###### Link to GitHub Repository:
 [Mapping](mapping.Rmd)
