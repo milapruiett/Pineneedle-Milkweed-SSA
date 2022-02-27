@@ -1,8 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 # Species Status Assessment
 
 ## Species Name: Pineneedle milkweed *Asclepias linaria*
