@@ -7,15 +7,14 @@
 ## Species Description:
 *A. linaria* is a rare milkweed species in the US, but common and found throughout
 Mexico. It can grow up to 4 feet tall, but is typically around 2 feet tall.
-It flowers in the spring and summer annually. It has small, white flowers, woody stems, and needle-shaped leaves. 
+It flowers in the spring and summer annually. It has small, white flowers, woody stems, and needle-shaped leaves. Small plants are sometimes mistaken for juvenile pine trees.
 
 ## Habitat Description:
 - Dry rocky slopes and mesas
 - elevation: 1500-6000ft
 
 ## Larval Host Information:
-It is known to be a host plant for monarch butterflies and other pollinators. However,
-it is used only occassionally due to its relative toxicity. 
+It is known to be a host plant for monarch butterflies, Queen Butterflies (will feed on other wildflowers instead) and other pollinators. However, it is used only occasionally due to its relative toxicity. 
 
 ## Data Sources for Occurence and Distribution Modeling:
 - GBIF
