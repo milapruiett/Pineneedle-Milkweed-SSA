@@ -2,9 +2,9 @@
 
 ## Species Name: Pineneedle milkweed *Asclepias linaria*
 
-![Pineneedle Milkweed](https://www.gardenia.net/storage/app/public/uploads/images/detail/k84O5sgDDoJo5QmUn6MlcBrbU5lF5RG8yyOZeDeq.jpeg)
-
 ## Species Taxonomy: Taxon key 3170270 
+
+![Pineneedle Milkweed](https://user-images.githubusercontent.com/99292009/156240835-f0a313c1-b346-4408-8707-4ca9dd09f98a.png)
 
 ## Species Description:
 *A. linaria* is a rare milkweed species in the US, but common and found throughout
