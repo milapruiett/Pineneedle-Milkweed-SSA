@@ -84,6 +84,14 @@ ymax <- extent(sdm.raster)[4]
 plot.file <- paste0(outpath, outprefix, "-single-prediction.pdf")
 pdf(file = plot.file, useDingbats = FALSE)
 
+###
+#optional code to produce a jpeg. instead of pdf#
+
+# plot.file <- paste0(outpath, outprefix, "-single-prediction.jpg")
+# jpeg(file = plot.file, quality = 100)
+
+###
+
 # Load in data for map borders
 data(wrld_simpl)
 
