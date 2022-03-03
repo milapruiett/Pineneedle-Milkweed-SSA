@@ -3,9 +3,9 @@
 ## Species Name: Pineneedle milkweed *Asclepias linaria*
 
 ## Species Taxonomy:
-# Kingdom: Plantae
-# Phylum: Tracheophyta
-# Class: Magnoliopsida
+- Kingdom: Plantae
+- Phylum: Tracheophyta
+- Class: Magnoliopsida
 # Order: Gentianales
 # Family: Apocynacea
 # Genus: Asclepias
