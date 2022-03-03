@@ -1,1 +1,2 @@
-#This contains the main code
+#This contains the main coding document that we use.
+#The pineneedle-sdm-single.R produces a Species Distribution Model, from Jeff Oliver. The sdm-functions.R and the setup.R are files complementing this process. 
