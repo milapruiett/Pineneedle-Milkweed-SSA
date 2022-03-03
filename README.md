@@ -16,7 +16,7 @@
 ## Species Description:
 *A. linaria* is a rare milkweed species in the US, but common and found throughout
 Mexico. It can grow up to 4 feet tall, but is typically around 2 feet tall.
-It flowers in the spring and summer annually. It has small, white flowers, woody stems, and needle-shaped leaves. Small plants are sometimes mistaken for juvenile pine trees.
+It flowers in the spring and summer annually. It has small, white flowers, woody stems, and needle-shaped leaves. Small plants are sometimes mistaken for juvenile pine trees. It is readily availble for commercial planting in the desert Southwest. 
 
 ## Habitat Description:
 - Dry rocky slopes and mesas
