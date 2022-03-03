@@ -37,10 +37,10 @@ milkweedUSMX<-anti_join(milkweedUSMX, namilkweed)
 
 #subset the data, choose what is relevant
 lessMilkweedUSMX<-select(milkweedUSMX, c(name, longitude, latitude, scientificName, year, month, day, eventDate, individualCount, elevation, stateProvince, countryCode))
-write_csv(lessMilkweedUSMX, "lessMilkweedUSMX.csv")
+write_csv(lessMilkweedUSMX, "data/lessMilkweedUSMX.csv")
 
 # create a csv with the clean data
-read_csv("lessMilkweedUSMX.csv")
+read_csv("data/lessMilkweedUSMX.csv")
 
 ## make an occurence map
 
@@ -51,7 +51,7 @@ max.lon <- ceiling(max(lessMilkweedUSMX$longitude))
 min.lon <- floor(min(lessMilkweedUSMX$longitude))
 
 
-jpeg(file="MUSMXspocc.jpg")
+jpeg(file="output/MUSMXspocc.jpg")
 data(wrld_simpl)
 
 ##### Plot the base map
