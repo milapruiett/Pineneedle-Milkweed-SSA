@@ -11,8 +11,8 @@ rm(list = ls())
 # Load dependancies
 
 # Things to set:
-infile <- "data/MY_SPECIES.csv"
-outprefix <- "MY_SPECIES"
+infile <- "data/PineneedleMilkweed.csv"
+outprefix <- "PineneedleMilkweed"
 outpath <- "output/"
 
 # Make sure the input file exists
@@ -107,3 +107,14 @@ dev.off()
 message(paste0("\nAnalysis complete. Map image written to ", plot.file, "."))
 
 rm(list = ls())
+
+
+
+
+
+
+
+
+
+
+
