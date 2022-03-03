@@ -39,3 +39,5 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 Nabhan, G., S. Buckley, and H. Dial. 2015. Pollinator Plants of the Desert Southwest: Native
 Milkweeds (Asclepias spp.). USDA-Natural Resources Conservation Service, Tucson Plant
 Materials Center, Tucson, AZ. TN-PM-16-1-AZ. 
+
+Pegram, Kimberly V, and Natalie A Melkonoff. "Assessing Preference and Survival of Danaus Plexippus on Two Western Species of Asclepias." Journal of Insect Conservation 24, no. 2 (2019): 287-95.
