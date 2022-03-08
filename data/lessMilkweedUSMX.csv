@@ -175,7 +175,7 @@ Asclepias linaria Cav.,-111.08389,31.512503,Asclepias linaria Cav.,1987,10,21,19
 Asclepias linaria Cav.,-111.581,31.7616,Asclepias linaria Cav.,1985,9,13,1985-09-13,NA,1524,Arizona,US
 Asclepias linaria Cav.,-110.9879,33.7629,Asclepias linaria Cav.,1984,8,18,1984-08-18,NA,1463,Arizona,US
 Asclepias linaria Cav.,-110.9879,33.7629,Asclepias linaria Cav.,1984,8,18,1984-08-18,NA,1463,Arizona,US
-Asclepias linaria Cav.,-110.986882,33.765132,Asclepias linaria Cav.,1984,8,18,1984-08-18,1,1463,Arizona,US
+Asclepias linaria Cav.,-110.986882,33.765132,Asclepias linaria Cav.,1984,8,18,1984-08-18,NA,1463,Arizona,US
 Asclepias linaria Cav.,-111.581735,31.746029,Asclepias linaria Cav.,1982,3,29,1982-03-29,NA,1150,Arizona,US
 Asclepias linaria Cav.,-110.6935,32.338833,Asclepias linaria Cav.,1982,6,12,1982-06-12,NA,1280,Arizona,US
 Asclepias linaria Cav.,-110.515306,31.724111,Asclepias linaria Cav.,1982,6,16,1982-06-16,NA,1501,Arizona,US
@@ -185,11 +185,11 @@ Asclepias linaria Cav.,-112.693485,32.012844,Asclepias linaria Cav.,1981,3,10,19
 Asclepias linaria Cav.,-110.69667,32.33694,Asclepias linaria Cav.,1981,4,25,1981-04-25,NA,1375,Arizona,US
 Asclepias linaria Cav.,-110.70472,32.43028,Asclepias linaria Cav.,1981,4,23,1981-04-23,NA,1249,Arizona,US
 Asclepias linaria Cav.,-111.521,31.988,Asclepias linaria Cav.,1981,6,24,1981-06-24,NA,1158,Arizona,US
-Asclepias linaria Cav.,-110.311059,32.459141,Asclepias linaria Cav.,1981,8,5,1981-08-05,1,1265,Arizona,US
+Asclepias linaria Cav.,-110.311059,32.459141,Asclepias linaria Cav.,1981,8,5,1981-08-05,NA,1265,Arizona,US
 Asclepias linaria Cav.,-111.56475,31.746028,Asclepias linaria Cav.,1981,12,20,1981-12-20,NA,NA,Arizona,US
 Asclepias linaria Cav.,-112.706,32.114,Asclepias linaria Cav.,1979,2,17,1979-02-17,NA,1097,Arizona,US
 Asclepias linaria Cav.,-110,31.5,Asclepias linaria Cav.,1979,8,23,1979-08-23,NA,1707,Arizona,US
-Asclepias linaria Cav.,-109.978931,31.478801,Asclepias linaria Cav.,1979,8,18,1979-08-18,1,1706.5,Arizona,US
+Asclepias linaria Cav.,-109.978931,31.478801,Asclepias linaria Cav.,1979,8,18,1979-08-18,NA,1706.5,Arizona,US
 Asclepias linaria Cav.,-110.10868,32.022285,Asclepias linaria Cav.,1979,9,1,1979-09-01,NA,1463,Arizona,US
 Asclepias linaria Cav.,-111.346,33.4151,Asclepias linaria Cav.,1978,2,20,1978-02-20,NA,1067,Arizona,US
 Asclepias linaria Cav.,-110.926479,32.439434,Asclepias linaria Cav.,1978,4,14,1978-04-14,NA,NA,Arizona,US
@@ -387,6 +387,8 @@ Asclepias linaria Cav.,-101.232407,21.013933,Asclepias linaria Cav.,2021,9,26,20
 Asclepias linaria Cav.,-98.483677,19.056782,Asclepias linaria Cav.,2021,9,16,2021-09-16,NA,NA,Puebla,MX
 Asclepias linaria Cav.,-98.620246,20.223839,Asclepias linaria Cav.,2021,9,18,2021-09-18,NA,NA,Hidalgo,MX
 Asclepias linaria Cav.,-98.628277,20.230676,Asclepias linaria Cav.,2021,9,30,2021-09-30,NA,NA,Hidalgo,MX
+Asclepias linaria Cav.,-99.833254,20.687557,Asclepias linaria Cav.,2021,9,19,2021-09-19,NA,NA,Querétaro,MX
+Asclepias linaria Cav.,-99.83525,20.688503,Asclepias linaria Cav.,2021,9,19,2021-09-19,NA,NA,Querétaro,MX
 Asclepias linaria Cav.,-100.110554,20.665161,Asclepias linaria Cav.,2021,10,2,2021-10-02,NA,NA,Querétaro,MX
 Asclepias linaria Cav.,-99.192341,19.322779,Asclepias linaria Cav.,2021,10,12,2021-10-12,NA,NA,Distrito Federal,MX
 Asclepias linaria Cav.,-98.844182,19.738593,Asclepias linaria Cav.,2021,10,5,2021-10-05,NA,NA,México,MX
@@ -2215,7 +2217,7 @@ Asclepias linaria Cav.,-98.824444,19.490278,Asclepias linaria Cav.,1983,7,25,198
 Asclepias linaria Cav.,-105.533333,25.083333,Asclepias linaria Cav.,1983,7,8,1983-07-08,NA,1900,Durango,MX
 Asclepias linaria Cav.,-101.75523,19.98236,Asclepias linaria Cav.,1983,7,29,1983-07-29,NA,NA,Michoacán de Ocampo,MX
 Asclepias linaria Cav.,-105.53,25.08,Asclepias linaria Cav.,1983,7,8,1983-07-08,NA,2000,Durango,MX
-Asclepias linaria Cav.,-105.533333,25.083333,Asclepias linaria Cav.,1983,7,8,1983-07-08,1,2000,Durango,MX
+Asclepias linaria Cav.,-105.533333,25.083333,Asclepias linaria Cav.,1983,7,8,1983-07-08,NA,2000,Durango,MX
 Asclepias linaria Cav.,-105.53,25.08,Asclepias linaria Cav.,1983,7,8,1983-07-08,NA,NA,Durango,MX
 Asclepias linaria Cav.,-96.5,17,Asclepias linaria Cav.,1983,7,26,1983-07-26,NA,NA,Oaxaca,MX
 Asclepias linaria Cav.,-98.82556,19.49222,Asclepias linaria Cav.,1983,7,25,1983-07-25,1,2500,Mexico,MX

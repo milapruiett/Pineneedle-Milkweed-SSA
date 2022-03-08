@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 # don't display my token to the world
 github.R
+
+# don't do bioclim data
+data/wc2-5/*
