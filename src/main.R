@@ -9,12 +9,13 @@ library("dismo")
 library("sf")
 library("tidyverse")
 
-#query the data, include both USA and Mexico
+#query the data from gbif, include both USA and Mexico
 milkweedUS<-occ(query="Asclepias linaria", from="gbif", limit=4000, gbifopts = list(year="1950,2021", country="US"));
 milkweedMX<-occ(query="Asclepias linaria", from="gbif", limit=4000, gbifopts = list(year="1950,2021", country="MX"));
 
 USData<-milkweedUS$gbif$data$Asclepias_linaria
 MXData<-milkweedMX$gbif$data$Asclepias_linaria
+
 
 #combine US and MX
 milkweedUSMX<-bind_rows(USData, MXData)
@@ -33,7 +34,27 @@ wronglong<-subset(x=milkweedUSMX, longitude==0) #remove where lat and long =0
 milkweedUSMX<-anti_join(milkweedUSMX, wronglong)
 
 namilkweed<- subset(x=milkweedUSMX, is.na(latitude)) #remove where lat is na. 
-milkweedUSMX<-anti_join(milkweedUSMX, namilkweed)
+milkweedUSMXgbif<-anti_join(milkweedUSMX, namilkweed)
+
+# query inat
+milkweedInat<-occ(query="Asclepias linaria", from="inat", limit=4000, gbifopts = list(year="1950,2021"));
+milkweedUSMXinat = milkweedInat$inat$data$Asclepias_linaria
+
+# combine the gbif and inat data into one data frame with just lat and
+# long to plot
+df1 <- select(milkweedUSMXgbif,c("longitude", "latitude"))
+df2 <- select(milkweedUSMXinat, "location")
+
+# split into lat and long
+df2 <- df2 %>%
+  separate(location, c("latitude", "longitude"), ",")
+
+# make numerical
+df2$longitude = as.numeric(df2$longitude)
+df2$latitude = as.numeric(df2$latitude)
+
+# now combine the data frames
+milkweedCombo <- rbind(df1, df2)
 
 #subset the data, choose what is relevant
 lessMilkweedUSMX<-select(milkweedUSMX, c(name, longitude, latitude, scientificName, year, month, day, eventDate, individualCount, elevation, stateProvince, countryCode))
