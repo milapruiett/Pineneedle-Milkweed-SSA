@@ -30,13 +30,22 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 - iNaturalist
 
 ## Species Occurence Map
+
 ![Occurence Map](output/MUSMXspocc.jpg)
 
-###### Link to GitHub Repository:
-[Mapping](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
+#### Link to GitHub Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
 
 ## Species Distribution Model
+### Description of SDM
+
+### Methods for SDM
+
+#### Link to Github Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
+
+
 ![SDM](output/PineneedleMilkweed-single-prediction.jpg)
+
+
 
 ###### References:
 Nabhan, G., S. Buckley, and H. Dial. 2015. Pollinator Plants of the Desert Southwest: Native
