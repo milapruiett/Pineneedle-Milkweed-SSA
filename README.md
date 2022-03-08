@@ -40,11 +40,9 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 
 ### Methods for SDM
 
-#### Link to Github Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
-
-
 ![SDM](output/PineneedleMilkweed-single-prediction.jpg)
 
+#### Link to Github Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
 
 
 ###### References:
