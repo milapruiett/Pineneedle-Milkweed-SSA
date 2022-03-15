@@ -8,6 +8,8 @@ library("rgdal")
 library("dismo")
 library("sf")
 library("tidyverse")
+library("dplyr")
+library("maps")
 
 #query the data from gbif, include both USA and Mexico
 milkweedUS<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=4000, gbifopts = list(year="1950,2021", country="US"));
