@@ -10,7 +10,7 @@ library("sf")
 library("tidyverse")
 
 #query the data from gbif, include both USA and Mexico
-milkweedUS<-occ(query="Asclepias linaria", from="gbif", limit=4000, gbifopts = list(year="1950,2021", country="US"));
+milkweedUS<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=4000, gbifopts = list(year="1950,2021", country="US"));
 milkweedMX<-occ(query="Asclepias linaria", from="gbif", limit=4000, gbifopts = list(year="1950,2021", country="MX"));
 
 USData<-milkweedUS$gbif$data$Asclepias_linaria
