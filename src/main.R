@@ -11,41 +11,30 @@ library("tidyverse")
 library("dplyr")
 library("maps")
 
-#query the data from gbif, include both USA and Mexico
-milkweedUS<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=4000, gbifopts = list(year="1950,2021", country="US"));
-milkweedMX<-occ(query="Asclepias linaria", from="gbif", limit=4000, gbifopts = list(year="1950,2021", country="MX"));
-
-USData<-milkweedUS$gbif$data$Asclepias_linaria
-MXData<-milkweedMX$gbif$data$Asclepias_linaria
-
-
-#combine US and MX
-milkweedUSMX<-bind_rows(USData, MXData)
-milkweedUSMX
+#query the data from gbif and inat, include both USA and Mexico
+milkweed<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=200, gbifopts = list(year="1950,2021", country=c("US","MX")));
+milkweedGBIF <- milkweed$gbif$data$Asclepias_linaria
+milkweedINAT <- milkweed$inat$data$Asclepias_linaria
 
 ##clean data section
-unique(milkweedUSMX$occurrenceStatus) #all present, no need to remove
-unique(milkweedUSMX$individualCount) #to see if there are places where count = 0
+unique(milkweedGBIF$occurrenceStatus) #all present, no need to remove
+unique(milkweedGBIF$individualCount) #to see if there are places where count = 0
 
-zeroWeed<-subset(x=milkweedUSMX, individualCount==0)
-milkweedUSMX <- anti_join(milkweedUSMX, zeroWeed) # removes places where count =0
+zeroWeed<-subset(x=milkweedGBIF, individualCount==0)
+milkweedGBIF <- anti_join(milkweedGBIF, zeroWeed) # removes places where count =0
 
-sort(milkweedUSMX$latitude, decreasing = TRUE) [1:20] #there are places where lat and long =0
-sort(milkweedUSMX$longitude, decreasing = TRUE) [1:20]
-wronglong<-subset(x=milkweedUSMX, longitude==0) #remove where lat and long =0 
-milkweedUSMX<-anti_join(milkweedUSMX, wronglong)
+sort(milkweedGBIF$latitude, decreasing = TRUE) [1:20] #there are places where lat and long =0
+sort(milkweedGBIF$longitude, decreasing = TRUE) [1:20]
+wronglong<-subset(x=milkweedGBIF, longitude==0) #remove where lat and long =0 
+milkweedGBIF<-anti_join(milkweedGBIF, wronglong)
 
-namilkweed<- subset(x=milkweedUSMX, is.na(latitude)) #remove where lat is na. 
-milkweedUSMXgbif<-anti_join(milkweedUSMX, namilkweed)
+namilkweed<- subset(x=milkweedGBIF, is.na(latitude)) #remove where lat is na. 
+milkweedGBIF<-anti_join(milkweedGBIF, namilkweed)
 
-# query inat
-milkweedInat<-occ(query="Asclepias linaria", from="inat", limit=4000, gbifopts = list(year="1950,2021"));
-milkweedUSMXinat = milkweedInat$inat$data$Asclepias_linaria
 
-# combine the gbif and inat data into one data frame with just lat and
-# long to plot
-df1 <- select(milkweedUSMXgbif,c("longitude", "latitude"))
-df2 <- select(milkweedUSMXinat, "location")
+# separate the lat and long from location in inat
+df1 <- select(milkweedGBIF,c("prov", "latitude", "longitude"))
+df2 <- select(milkweedINAT, c("location"))
 
 # split into lat and long
 df2 <- df2 %>%
@@ -55,23 +44,26 @@ df2 <- df2 %>%
 df2$longitude = as.numeric(df2$longitude)
 df2$latitude = as.numeric(df2$latitude)
 
+# add a column that says inat
+df2$prov <- "inat"
+
 # now combine the data frames
 milkweedCombo <- rbind(df1, df2)
 
-#subset the data, choose what is relevant
-lessMilkweedUSMX<-select(milkweedUSMX, c(name, longitude, latitude, scientificName, year, month, day, eventDate, individualCount, elevation, stateProvince, countryCode))
-write_csv(lessMilkweedUSMX, "data/lessMilkweedUSMX.csv")
+# remove nas
+milkweedCombo <- na.omit(milkweedCombo)
+
 
 # create a csv with the clean data
-read_csv("data/lessMilkweedUSMX.csv")
+write_csv(milkweedCombo, "data/milkweedCombo.csv")
 
 ## make an occurence map
 
 #find the lat/long bounds of the data
-max.lat <- ceiling(max(lessMilkweedUSMX$latitude))
-min.lat <- floor(min(lessMilkweedUSMX$latitude))
-max.lon <- ceiling(max(lessMilkweedUSMX$longitude))
-min.lon <- floor(min(lessMilkweedUSMX$longitude))
+max.lat <- ceiling(max(milkweedCombo$latitude))
+min.lat <- floor(min(milkweedCombo$latitude))
+max.lon <- ceiling(max(milkweedCombo$longitude))
+min.lon <- floor(min(milkweedCombo$longitude))
 
 
 jpeg(file="output/MUSMXspocc.jpg")
@@ -87,8 +79,8 @@ plot(wrld_simpl,
      sub="1950-2021" # a caption
 )
 
-points(x =lessMilkweedUSMX$longitude, 
-       y = lessMilkweedUSMX$latitude, 
+points(x =milkweedCombo$longitude, 
+       y = milkweedCombo$latitude, 
        col = "blue", 
        pch = 20, 
        cex = 0.75)

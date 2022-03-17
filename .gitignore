@@ -43,3 +43,6 @@ github.R
 
 # don't do bioclim data
 data/wc2-5/*
+
+# don't do future bioclim data
+`data/cmip5/*`
