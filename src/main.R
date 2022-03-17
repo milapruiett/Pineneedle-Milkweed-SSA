@@ -12,7 +12,7 @@ library("dplyr")
 library("maps")
 
 #query the data from gbif and inat, include both USA and Mexico
-milkweed<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=200, gbifopts = list(year="1950,2021", country=c("US","MX")));
+milkweed<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=4000, gbifopts = list(year="1950,2021", country=c("US","MX")));
 milkweedGBIF <- milkweed$gbif$data$Asclepias_linaria
 milkweedINAT <- milkweed$inat$data$Asclepias_linaria
 
@@ -53,6 +53,11 @@ milkweedCombo <- rbind(df1, df2)
 # remove nas
 milkweedCombo <- na.omit(milkweedCombo)
 
+# remove point that is in india
+milkweedCombo <- milkweedCombo %>% filter(longitude < 50)
+
+# remove points that are above 40 deg latitude
+milkweedCombo <- milkweedCombo %>% filter(latitude < 40)
 
 # create a csv with the clean data
 write_csv(milkweedCombo, "data/milkweedCombo.csv")
@@ -66,7 +71,7 @@ max.lon <- ceiling(max(milkweedCombo$longitude))
 min.lon <- floor(min(milkweedCombo$longitude))
 
 
-jpeg(file="output/MUSMXspocc.jpg")
+pdf(file="output/MUSMXspocc.pdf")
 data(wrld_simpl)
 
 ##### Plot the base map
