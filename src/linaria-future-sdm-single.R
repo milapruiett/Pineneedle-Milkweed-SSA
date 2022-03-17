@@ -1,4 +1,4 @@
-# Script to run contemporary species distribution model for a single species
+# Script to run forecast species distribution model for a single species
 # Jeff Oliver
 # jcoliver@email.arizona.edu
 # 2017-09-07
@@ -11,8 +11,8 @@ rm(list = ls())
 # Load dependancies
 
 # Things to set:
-infile <- "data/PineneedleMilkweed.csv"
-outprefix <- "PineneedleMilkweed"
+infile <- "data/milkweedCombo.csv"
+outprefix <- "linaria"
 outpath <- "output/"
 
 # Make sure the input file exists
@@ -52,6 +52,7 @@ if (length(missing.packages) > 0) {
   stop(paste0("Missing one or more required packages. The following packages are required for run-sdm: ", paste(missing.packages, sep = "", collapse = ", ")), ".\n")
 }
 
+
 source(file = "src/sdm-functions.R")
 
 ################################################################################
@@ -64,7 +65,7 @@ source(file = "src/sdm-functions.R")
 prepared.data <- PrepareData(file = infile)
 
 # Run species distribution modeling
-sdm.raster <- SDMRaster(data = prepared.data)
+sdm.raster <- SDMForecast(data = prepared.data)
 
 ################################################################################
 # PLOT
@@ -80,9 +81,32 @@ xmax <- extent(sdm.raster)[2]
 ymin <- extent(sdm.raster)[3]
 ymax <- extent(sdm.raster)[4]
 
-# Plot the modelplot.file.state <- paste0(outpath, outprefix, "-single-prediction-state-borders.jpg")
-plot.file.country<- paste0(outpath, outprefix, "-single-prediction-country-borders.jpg")
-plot.file.county<- paste0(outpath, outprefix, "-single-prediction-county-borders.jpg")
+# Plot the model; save to pdf
+plot.file <- paste0(outpath, outprefix, "-single-future-prediction.pdf")
+#pdf(file = plot.file, useDingbats = FALSE)
+
+# Load in data for map borders
+#data(wrld_simpl)
+
+# Draw the base map
+#plot(wrld_simpl, xlim = c(xmin, xmax), ylim = c(ymin, ymax), axes = TRUE, col = "gray95", 
+#main = paste0(gsub(pattern = "_", replacement = " ", x = outprefix), " - future"))
+
+# Add the model rasters
+#plot(sdm.raster, legend = FALSE, add = TRUE)
+
+# Redraw the borders of the base map
+#plot(wrld_simpl, xlim = c(xmin, xmax), ylim = c(ymin, ymax), add = TRUE, border = "gray10", col = NA)
+
+# Add bounding box around map
+#box()
+
+# Stop re-direction to PDF graphics device
+#dev.off()
+
+
+
+plot.file.sdm <- paste0(outpath, outprefix, "-single-future-sdm.jpg")
 
 #Convert sdm.raster to a data frame
 # First, to a SpatialPointsDataFrame
@@ -94,42 +118,21 @@ rasterDF  <- data.frame(sdf)
 sdmRasterDF<-rasterDF %>% subset(layer>1)
 
 
+wrld<-ggplot2::map_data("world", c("mexico", "canada"))
+
 states<-ggplot(prepared.data) +
   geom_tile(data = sdmRasterDF , aes(x = x, y = y), show.legend=FALSE) +  
   geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE) +
   borders("state", xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
+  geom_polygon(data=wrld, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
   scale_size_area() +
   coord_quickmap() +
-  labs(title="Species occurrences and distribution model", x="longitude", y="latitude")
+  coord_fixed(xlim = c(xmin, xmax), ylim = c(ymin, ymax))+
+  labs(title="Current species occurrences with 2070 climate SDM projections", x="longitude", y="latitude")
 
-ggsave(plot.file.state, states)
-
-countries<-ggplot(prepared.data) +
-  geom_tile(data = sdmRasterDF , aes(x = x, y = y), show.legend=FALSE) +  
-  geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE) +
-  borders("world", xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
-  scale_size_area() +
-  coord_quickmap() +
-  labs(title="Species occurrences and distribution model", x="longitude", y="latitude")
-
-
-ggsave(plot.file.country, countries)
-
-
-counties<-ggplot(prepared.data) +
-  geom_tile(data = sdmRasterDF , aes(x = x, y = y), show.legend=FALSE) +  
-  geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE) +
-  borders("county", xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
-  scale_size_area() +
-  coord_quickmap() +
-  labs(title="Species occurrences and distribution model", x="longitude", y="latitude")
-
-
-ggsave(plot.file.county, counties)
-
+ggsave(plot.file.sdm, states)
 
 # Let user know analysis is done.
-message(paste0("\nAnalysis complete. Map image written to ", plot.file.country, ", ", plot.file.county, ", and ",plot.file.state,"."))
+message(paste0("\nAnalysis complete. Map image written to ", plot.file, "."))
 
 rm(list = ls())
-
