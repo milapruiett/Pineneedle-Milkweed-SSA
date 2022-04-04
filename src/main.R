@@ -1,5 +1,12 @@
-# load packages:
+#creates
+  #a species occurence map for Pineneedle Milkweed
+  #a species distribution model for the present
+  #a species distribution model for the future
+#Team Pineneedle (Claire, Mila, Moritz)
+#Spring 2022
 
+
+# load packages:
 library("spocc")
 library("sp")
 library("raster")
@@ -8,7 +15,6 @@ library("rgdal")
 library("dismo")
 library("sf")
 library("tidyverse")
-library("dplyr")
 library("maps")
 
 #query the data from gbif and inat, include both USA and Mexico
@@ -28,6 +34,8 @@ sort(milkweedGBIF$longitude, decreasing = TRUE) [1:20]
 wronglong<-subset(x=milkweedGBIF, longitude==0) #remove where lat and long =0 
 milkweedGBIF<-anti_join(milkweedGBIF, wronglong)
 
+
+#TODO take this out??
 namilkweed<- subset(x=milkweedGBIF, is.na(latitude)) #remove where lat is na. 
 milkweedGBIF<-anti_join(milkweedGBIF, namilkweed)
 
