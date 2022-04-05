@@ -66,8 +66,6 @@ milkweedCombo <- milkweedCombo %>% filter(longitude < -60)
 # create a csv with the combined data, includes source, longitude and latitude
 write_csv(milkweedCombo, "data/milkweedCombo.csv")
 
-## make an occurence map from the data ## 
-
 ## SPOCC Mapping Code ## 
 
 #find the lat/long bounds of the data
@@ -82,16 +80,14 @@ prepared.data <- PrepareData(file = "data/milkweedCombo.csv")
 
 wrld<-ggplot2::map_data("world", c("mexico"))
 
-jpeg(file="output/pineneedleMilkweedspocc.jpg")
-
-ggplot(milkweedCombo) +
+spocc <- ggplot(milkweedCombo) +
   geom_point(aes(x=longitude, y=latitude, color='milkweed'), size=0.5) +
   geom_polygon(data=wrld, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
   coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
   borders("state") +
   labs(title="Species Occurence Map", color="Occurence") 
 
-dev.off()
+ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 
 source("src/linaria-spocc.R")
 
