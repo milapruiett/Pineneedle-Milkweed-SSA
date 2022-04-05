@@ -68,34 +68,31 @@ write_csv(milkweedCombo, "data/milkweedCombo.csv")
 
 ## make an occurence map from the data ## 
 
+## SPOCC Mapping Code ## 
+
 #find the lat/long bounds of the data
-max.lat <- ceiling(max(milkweedCombo$latitude))
-min.lat <- floor(min(milkweedCombo$latitude))
-max.lon <- ceiling(max(milkweedCombo$longitude))
-min.lon <- floor(min(milkweedCombo$longitude))
+ymax <- ceiling(max(milkweedCombo$latitude))
+ymin <- floor(min(milkweedCombo$latitude))
+xmin <- ceiling(max(milkweedCombo$longitude))
+xmax <- floor(min(milkweedCombo$longitude))
+
+source(file = "src/sdm-functions.R")
+
+prepared.data <- PrepareData(file = "data/milkweedCombo.csv")
+
+wrld<-ggplot2::map_data("world", c("mexico"))
 
 jpeg(file="output/pineneedleMilkweedspocc.jpg")
-data(wrld_simpl)
 
-#Plot the base map
-plot(wrld_simpl, 
-     xlim = c(min.lon, max.lon), # sets upper/lower x
-     ylim = c(min.lat, max.lat), # sets upper/lower y
-     axes = TRUE, 
-     col = "grey95",
-     main="Pineneedle Milkweed in US and MX",  # a title
-     sub="1950-2021" # a caption
-)
+ggplot(milkweedCombo) +
+  geom_point(aes(x=longitude, y=latitude, color='milkweed'), size=0.5) +
+  geom_polygon(data=wrld, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
+  coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
+  borders("state") +
+  labs(title="Species Occurence Map", color="Occurence") 
 
-points(x =milkweedCombo$longitude, 
-       y = milkweedCombo$latitude, 
-       col = "blue", 
-       pch = 20, 
-       cex = 0.75)
-box()
 dev.off()
 
-## SPOCC Mapping Code ## 
 source("src/linaria-spocc.R")
 
 # SDM Mapping Code
