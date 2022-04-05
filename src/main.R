@@ -90,7 +90,7 @@ spocc <- ggplot(milkweedCombo) +
   coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
   borders("state") +
   scale_size_area() +
-  labs(title="Species Occurence Map of the Pineneedle Milkweed") 
+  labs(title="Species Occurence Map of Pineneedle Milkweed") 
 
 ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 
