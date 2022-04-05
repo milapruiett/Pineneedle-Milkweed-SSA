@@ -37,7 +37,7 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 
 ## Species Distribution Model
 ### Description of SDM
-- The Species Distribution Model uses bioclim data with occurence data from 1950-2021 to show the areas that are most adept to supporting Pineneedle milkweed (*Asclepias linaria*). The orange displays the species occurence data (sourced from GBIF and iNaturalist). The grey represents the areas in which Pineneedle Milkweed could theoretically grow accordng to the areas climate.
+- The Species Distribution Model map uses bioclim data with occurence data from 1950-2021 to show the areas that are most adept to supporting Pineneedle milkweed (*Asclepias linaria*). The orange displays the species occurence data (sourced from GBIF and iNaturalist). The grey represents the areas in which Pineneedle Milkweed could theoretically grow accordng to the areas climate.
 ### Methods for SDM
 Using code from John Oliver, the SDM 
 
@@ -45,7 +45,7 @@ Current SDM
 ![SDMcurrent](output/linaria-single-current-sdm.jpg)
 
 ### Description of Future SDM
-- Description
+- The Future Species Disribution Model map uses Worldclim data prjections for the year 2070 based on the GFDL-ESM2G model with an RCP of 4.5 CO2. 
 ### Methods for Future SDM
 - Methods
 
