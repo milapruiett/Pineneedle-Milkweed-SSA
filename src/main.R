@@ -85,6 +85,7 @@ spocc <- ggplot(milkweedCombo) +
   geom_polygon(data=wrld, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
   coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
   borders("state") +
+  scale_size_area() +
   labs(title="Species Occurence Map", color="Occurence") 
 
 ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
