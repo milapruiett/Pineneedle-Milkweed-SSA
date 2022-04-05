@@ -31,7 +31,7 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 
 ## Species Occurence Map
 
-![Occurence Map](output/MUSMXspocc.jpg)
+![Occurence Map](output/pineneedleMilkweedspocc.jpg)
 
 #### Link to GitHub Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
 
@@ -39,7 +39,7 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 ### Description of SDM
 - The Species Distribution Model map uses bioclim data with occurence data from 1950-2021 to show the areas that are most adept to supporting Pineneedle milkweed (*Asclepias linaria*). The orange displays the species occurence data (sourced from GBIF and iNaturalist). The grey represents the areas in which Pineneedle Milkweed could theoretically grow accordng to the areas climate.
 ### Methods for SDM
-Using code from John Oliver, the SDM 
+- Using code from John Oliver, the SDM 
 ![SDMcurrent](output/linaria-single-current-sdm.jpg)
 
 ### Description of Future SDM
