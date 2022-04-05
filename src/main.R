@@ -84,17 +84,15 @@ prepared.data <- PrepareData(file = "data/milkweedCombo.csv")
 wrld<-ggplot2::map_data("world", c("mexico"))
 
 spocc <- ggplot(milkweedCombo) +
-  coord_quickmap() +
-  geom_point(aes(x=longitude, y=latitude, color=source), size=0.5) +
+  geom_point(aes(x=longitude, y=latitude, color=source), size=.5) +
   geom_polygon(data=wrld, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
-  coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
   borders("state") +
+  coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
   scale_size_area() +
   labs(title="Species Occurence Map of Pineneedle Milkweed") 
 
 ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 
-source("src/linaria-spocc.R")
 
 # SDM Mapping Code
 
