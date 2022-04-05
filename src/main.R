@@ -17,51 +17,56 @@ library("sf")
 library("tidyverse")
 library("maps")
 
-#query the data from gbif and inat, include both USA and Mexico
+##query the data from gbif and inat, include both USA and Mexico##
 milkweed<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=4000, gbifopts = list(year="1950,2021", country=c("US","MX")));
 milkweedGBIF <- milkweed$gbif$data$Asclepias_linaria
 milkweedINAT <- milkweed$inat$data$Asclepias_linaria
 
-##clean data section
+##make GBIF and INAT data ready to be merged##
+
+# initial check of the GBIF data
 unique(milkweedGBIF$occurrenceStatus) #all present, no need to remove
 unique(milkweedGBIF$individualCount) #to see if there are places where count = 0
 
+# removing places where count =0 in GBIF data
 zeroWeed<-subset(x=milkweedGBIF, individualCount==0)
-milkweedGBIF <- anti_join(milkweedGBIF, zeroWeed) # removes places where count =0
+milkweedGBIF <- anti_join(milkweedGBIF, zeroWeed)
 
-# separate the lat and long from location in inat
+# select only longitude and latitude  from GBIF data
 gbifLocation <- select(milkweedGBIF,c("prov", "latitude", "longitude"))
+
+# select only location from INAT data
 inatLocation <- select(milkweedINAT, c("location"))
 
-# split into lat and long
+# split location into longitude and latitude in INAT data
 inatLocation <- inatLocation %>%
   separate(location, c("latitude", "longitude"), ",")
 
-# make numerical
+# make sure longitude and latitude data in INAT is numerical
 inatLocation$longitude = as.numeric(inatLocation$longitude)
 inatLocation$latitude = as.numeric(inatLocation$latitude)
 
 # add a column that says inat
 inatLocation$prov <- "inat"
 
-# now combine the data frames
+## combine the data frames of INAT and GBIF## 
 milkweedCombo <- rbind(gbifLocation, inatLocation)
 
-# remove nas
+# remove any rows where there are NAs in longitude or latitude is NA
 milkweedCombo <- na.omit(milkweedCombo)
 
-# remove points where latitude is outside of US or Mexico
+# remove points where latitude is far outside of US or Mexico
 milkweedCombo <- milkweedCombo %>% filter(latitude < 50)
 milkweedCombo <- milkweedCombo %>% filter(latitude > 10)
 
-# remove points where longitude is outside of US or Mexico
+# remove points where longitude is far outside of US or Mexico
 milkweedCombo <- milkweedCombo %>% filter(longitude > -130)
 milkweedCombo <- milkweedCombo %>% filter(longitude < -60)
 
-# create a csv with the clean data
+# create a csv with the combined data, includes source, longitude and latitude
 write_csv(milkweedCombo, "data/milkweedCombo.csv")
 
-## make an occurence map
+## make an occurence map from the data ## 
 
 #find the lat/long bounds of the data
 max.lat <- ceiling(max(milkweedCombo$latitude))
@@ -69,11 +74,10 @@ min.lat <- floor(min(milkweedCombo$latitude))
 max.lon <- ceiling(max(milkweedCombo$longitude))
 min.lon <- floor(min(milkweedCombo$longitude))
 
-
 jpeg(file="output/pineneedleMilkweedspocc.jpg")
 data(wrld_simpl)
 
-##### Plot the base map
+#Plot the base map
 plot(wrld_simpl, 
      xlim = c(min.lon, max.lon), # sets upper/lower x
      ylim = c(min.lat, max.lat), # sets upper/lower y
@@ -91,7 +95,7 @@ points(x =milkweedCombo$longitude,
 box()
 dev.off()
 
-# SPOCC Mapping Code
+## SPOCC Mapping Code ## 
 source("src/linaria-spocc.R")
 
 # SDM Mapping Code
