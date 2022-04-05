@@ -1,7 +1,7 @@
 # Pineneedle readme
 ## Overview
 - Creating Species Occurence Maps and Species Distribution Models for Species Status Assessment of Monarch Butterflies
-- ![SSA.md](final SSA)
+- [SSA.md](final SSA)
 - Team Pineneedle (Claire, Mila, Moritz), Spring 2022
 - With the help of code by Jeff Oliver https://github.com/jcoliver/biodiversity-sdm-lesson
 
