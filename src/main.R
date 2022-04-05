@@ -50,11 +50,13 @@ milkweedCombo <- rbind(gbifLocation, inatLocation)
 # remove nas
 milkweedCombo <- na.omit(milkweedCombo)
 
-# remove point that is in India 
-milkweedCombo <- milkweedCombo %>% filter(longitude < 50)
+# remove points where latitude is outside of US or Mexico
+milkweedCombo <- milkweedCombo %>% filter(latitude < 50)
+milkweedCombo <- milkweedCombo %>% filter(latitude > 10)
 
-# remove points that are above 40 deg latitude
-milkweedCombo <- milkweedCombo %>% filter(latitude < 40)
+# remove points where longitude is outside of US or Mexico
+milkweedCombo <- milkweedCombo %>% filter(longitude > -130)
+milkweedCombo <- milkweedCombo %>% filter(longitude < -60)
 
 # create a csv with the clean data
 write_csv(milkweedCombo, "data/milkweedCombo.csv")
