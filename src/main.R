@@ -49,8 +49,11 @@ inatLocation$latitude = as.numeric(inatLocation$latitude)
 # add a column that says inat
 inatLocation$prov <- "inat"
 
-## combine the data frames of INAT and GBIF## 
+## combine the data frames of INAT and GBIF ## 
 milkweedCombo <- rbind(gbifLocation, inatLocation)
+
+# rename prov column to say source
+milkweedCombo$source <- milkweedCombo$prov
 
 # remove any rows where there are NAs in longitude or latitude is NA
 milkweedCombo <- na.omit(milkweedCombo)
@@ -81,12 +84,12 @@ prepared.data <- PrepareData(file = "data/milkweedCombo.csv")
 wrld<-ggplot2::map_data("world", c("mexico"))
 
 spocc <- ggplot(milkweedCombo) +
-  geom_point(aes(x=longitude, y=latitude, color='milkweed'), size=0.5) +
+  geom_point(aes(x=longitude, y=latitude, color=source), size=0.5) +
   geom_polygon(data=wrld, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
   coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
   borders("state") +
   scale_size_area() +
-  labs(title="Species Occurence Map", color="Occurence") 
+  labs(title="Species Occurence Map of the Pineneedle Milkweed") 
 
 ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 
