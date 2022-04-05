@@ -45,13 +45,15 @@ Current SDM
 ![SDMcurrent](output/linaria-single-current-sdm.jpg)
 
 ### Description of Future SDM
-- The Future Species Disribution Model map uses Worldclim data prjections for the year 2070 based on the GFDL-ESM2G model with an RCP of 4.5 CO2. 
+- The Future Species Disribution Model map uses Worldclim forcast climate data for the year 2070 based on the GFDL-ESM2G model with an RCP of 4.5 CO<sub>2</sub>. The orange points represent the current species occurences for Pineneedle Milkweed for the years 1950-2020. The grey represents the Species Disripution Model projections for the year 2070.
 ### Methods for Future SDM
-- Methods
+- Using forcast climate data from Worldclime and the GFDL-ESM2G model 
 
 Future SDM
 ![SDMfuture](output/linaria-single-future-sdm.jpg)
 
+## Summary
+- Highlight key findings important for managers in AZ
 
 #### Link to Github Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
 
