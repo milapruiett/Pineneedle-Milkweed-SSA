@@ -29,39 +29,28 @@ unique(milkweedGBIF$individualCount) #to see if there are places where count = 0
 zeroWeed<-subset(x=milkweedGBIF, individualCount==0)
 milkweedGBIF <- anti_join(milkweedGBIF, zeroWeed) # removes places where count =0
 
-sort(milkweedGBIF$latitude, decreasing = TRUE) [1:20] #there are places where lat and long =0
-sort(milkweedGBIF$longitude, decreasing = TRUE) [1:20]
-wronglong<-subset(x=milkweedGBIF, longitude==0) #remove where lat and long =0 
-milkweedGBIF<-anti_join(milkweedGBIF, wronglong)
-
-
-#TODO take this out??
-namilkweed<- subset(x=milkweedGBIF, is.na(latitude)) #remove where lat is na. 
-milkweedGBIF<-anti_join(milkweedGBIF, namilkweed)
-
-
 # separate the lat and long from location in inat
-df1 <- select(milkweedGBIF,c("prov", "latitude", "longitude"))
-df2 <- select(milkweedINAT, c("location"))
+gbifLocation <- select(milkweedGBIF,c("prov", "latitude", "longitude"))
+inatLocation <- select(milkweedINAT, c("location"))
 
 # split into lat and long
-df2 <- df2 %>%
+inatLocation <- inatLocation %>%
   separate(location, c("latitude", "longitude"), ",")
 
 # make numerical
-df2$longitude = as.numeric(df2$longitude)
-df2$latitude = as.numeric(df2$latitude)
+inatLocation$longitude = as.numeric(inatLocation$longitude)
+inatLocation$latitude = as.numeric(inatLocation$latitude)
 
 # add a column that says inat
-df2$prov <- "inat"
+inatLocation$prov <- "inat"
 
 # now combine the data frames
-milkweedCombo <- rbind(df1, df2)
+milkweedCombo <- rbind(gbifLocation, inatLocation)
 
 # remove nas
 milkweedCombo <- na.omit(milkweedCombo)
 
-# remove point that is in india
+# remove point that is in India 
 milkweedCombo <- milkweedCombo %>% filter(longitude < 50)
 
 # remove points that are above 40 deg latitude
@@ -79,7 +68,7 @@ max.lon <- ceiling(max(milkweedCombo$longitude))
 min.lon <- floor(min(milkweedCombo$longitude))
 
 
-pdf(file="output/MUSMXspocc.pdf")
+jpeg(file="output/pineneedleMilkweedspocc.jpg")
 data(wrld_simpl)
 
 ##### Plot the base map
@@ -99,6 +88,9 @@ points(x =milkweedCombo$longitude,
        cex = 0.75)
 box()
 dev.off()
+
+# SPOCC Mapping Code
+source("src/linaria-spocc.R")
 
 # SDM Mapping Code
 
