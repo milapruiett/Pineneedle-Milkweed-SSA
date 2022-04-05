@@ -31,6 +31,7 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 
 ## Species Occurence Map
 
+<img src="output/pineneedleMilkweedspocc.jpg" width="100" height="100">
 ![Occurence Map](output/pineneedleMilkweedspocc.jpg = 250x250)
 
 #### Link to GitHub Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
