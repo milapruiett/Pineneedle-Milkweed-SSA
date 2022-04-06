@@ -6,16 +6,7 @@
 #Spring 2022
 
 
-# load packages:
-library("spocc")
-library("sp")
-library("raster")
-library("maptools")
-library("rgdal")
-library("dismo")
-library("sf")
-library("tidyverse")
-library("maps")
+source(file = "src/setup.R")
 
 ##query the data from gbif and inat, include both USA and Mexico##
 milkweed<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=4000, gbifopts = list(year="1950,2021", country=c("US","MX")));
@@ -100,8 +91,6 @@ ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 
 ### 1. Run the setup code below 
 # This installs libraries, and downloads climate data from bioclim (https://www.worldclim.org/data/bioclim.html)
-
-source(file = "src/setup.R")
 
 ### 7. Use the source() command to run both files you created (one at a time)
 

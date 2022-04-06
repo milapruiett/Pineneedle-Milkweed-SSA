@@ -10,9 +10,19 @@
 
 ################################################################################
 # Install dependencies
-required <- c("raster", "sp", "dismo", "maptools", "spocc")
+required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf","tidyverse","maps")
 install.packages(required)
+
+# load packages:
+library("raster")
+library("sp")
+library("dismo")
+library("maptools")
 library("spocc")
+library("rgdal")
+library("sf")
+library("tidyverse")
+library("maps")
 
 # Make sure packages all installed
 successful <- required %in% rownames(installed.packages())
