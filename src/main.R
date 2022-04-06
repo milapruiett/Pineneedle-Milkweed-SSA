@@ -5,7 +5,6 @@
 #Team Pineneedle (Claire, Mila, Moritz)
 #Spring 2022
 
-
 source(file = "src/setup.R")
 
 ##query the data from gbif and inat, include both USA and Mexico##
@@ -84,15 +83,8 @@ spocc <- ggplot(milkweedCombo) +
 
 ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 
-
 # SDM Mapping Code
-
 # Thank you Jeff Oliver for your code (https://github.com/jcoliver/biodiversity-sdm-lesson)
-
-### 1. Run the setup code below 
-# This installs libraries, and downloads climate data from bioclim (https://www.worldclim.org/data/bioclim.html)
-
-### 7. Use the source() command to run both files you created (one at a time)
 
 source("src/linaria-sdm-single.R")
 
