@@ -6,14 +6,12 @@
 - With the help of code by Jeff Oliver https://github.com/jcoliver/biodiversity-sdm-lesson
 
 ## Dependencies 
-The following additional R packages are required (these will be installed by running the setup script, src/setup.R):
+The following  R packages are required (these will be installed by running the setup script, src/setup.R):
 - raster
 - sp
 - dismo
 - maptools
 - spocc
-
-The following additional R packages are also required (these will be installed by running the first part of the main.R script, src/main.R):
 - rgdal
 - sf
 - tidyverse
