@@ -1,5 +1,7 @@
 # Host Plant Information for Monarch (*Danaus plexippus: Nymphalidae*)
 
+### SSa by Moritz Kalis, Mila Pruiett, and Claire Joseph
+
 ## Species Name: Pineneedle milkweed *Asclepias linaria*
 
 ## Species Taxonomy:
@@ -28,6 +30,12 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 ## Data Sources for Occurence and Distribution Modeling:
 - GBIF
 - iNaturalist
+
+## Data cleaning
+We removed all data that had
+ - 0 or NA occurences
+ - ABSENT occurence status
+ - coordinates outside continental North America
 
 ## Species Occurence Map
 
