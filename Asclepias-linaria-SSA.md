@@ -1,6 +1,6 @@
 # Host Plant Information for Monarch (*Danaus plexippus: Nymphalidae*)
 
-### SSa by Moritz Kalis, Mila Pruiett, and Claire Joseph
+### Species Status Assessment by Moritz Kalis, Mila Pruiett, and Claire Joseph
 
 ## Species Name: Pineneedle milkweed *Asclepias linaria*
 
