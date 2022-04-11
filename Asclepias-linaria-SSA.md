@@ -58,8 +58,10 @@ We removed all data that had
 
 ## Summary and Key Findings
 - Pineneedle Milkweed is mostly prevalent in Mexico and Southern Arizona
-- With climate predictions for 2070, the range for the milkweed may move farther north
-- With a larger range, the species may become more prevalent in Monarch Butterfly Migration even if it is not a preferential species for laying eggs because of its relative heat tolerance in relation to a warming planet.
+- With climate predictions for 2070, the range for the milkweed moves a bit farther north into Arizona and Texas
+- The species may become more prevalent in Monarch Butterfly Migration even if it is not a preferential species for laying eggs because of its relative heat tolerance in relation to a warming planet
+- With climate change, we might witness range contraction to higher elevations
+
 
 #### Link to Github Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
 
