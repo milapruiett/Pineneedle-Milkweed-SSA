@@ -1,7 +1,7 @@
 # Pineneedle readme
 ## Overview
 - Creating Species Occurence Maps and Species Distribution Models for Species Status Assessment of Monarch Butterflies
-- [Asclepias-linaria-SSA.md](SSA)
+- [Species Status Assessment Asclepias linaria](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo/blob/d58107fdebd9162250135d2f8705416b4cc4ae2a/Asclepias-linaria-SSA.md)
 - Team Pineneedle (Claire, Mila, Moritz), Spring 2022
 - With the help of code by Jeff Oliver https://github.com/jcoliver/biodiversity-sdm-lesson
 
@@ -23,7 +23,7 @@ The following  R packages are required (these will be installed by running the s
 + data
   + wc2-5: climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org) (_note_: this folder is not under version control, but will be created by running the setup script (`scr/setup.R`))
   + cmip5: forcast climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org). The data are for the year 2070, based on the GFDL-ESM2G model with an RCP of 4.5 CO<sub>2</sub>. For an examination of different forecast models, see [McSweeney et al. 2015](https://link.springer.com/article/10.1007/s00382-014-2418-8). (_note_: this folder is not under version control, but will be created by running the setup script (`scr/setup.R`))
-  + MilkweedCombo.csv: data harvested from [GBIF](https://www.gbif.org/) and INaturalist for _Pineneedle Milkweed_. This dataset is not under version control, but will be harvested by running src/main.R.
+  + MilkweedCombo.csv: data harvested from [GBIF](https://www.gbif.org/) and [iNaturalist](https://www.inaturalist.org) for _Pineneedle Milkweed_. This dataset is not under version control, but will be harvested by running src/main.R.
 + output (contents are not under version control)
   + pineneedleMilkweedspocc.jpg
   + linaria-single-current-sdm.jpg
@@ -39,5 +39,5 @@ The following  R packages are required (these will be installed by running the s
 ## Running the code
 - open the src/main.R document
 - run the first line of code, source(file = "src/setup.R"), to install all libraries. you might have to restart R in the process
-- run the rest of the main.R document (consider runnning the last two lines of code, source "src/linaria-sdm-single.R" and source("src/linaria-future-sdm-single.R", seperately)
+- run the rest of the main.R document (consider runnning the last two lines of code, source "src/linaria-sdm-single.R" and source "src/linaria-future-sdm-single.R", seperately)
 - the created maps will be in the output folder
