@@ -5,17 +5,7 @@
 #Team Pineneedle (Claire, Mila, Moritz)
 #Spring 2022
 
-
-# load packages:
-library("spocc")
-library("sp")
-library("raster")
-library("maptools")
-library("rgdal")
-library("dismo")
-library("sf")
-library("tidyverse")
-library("maps")
+source(file = "src/setup.R")
 
 ##query the data from gbif and inat, include both USA and Mexico##
 milkweed<-occ(query="Asclepias linaria", from=c("inat", "gbif"), limit=4000, gbifopts = list(year="1950,2021", country=c("US","MX")));
@@ -49,8 +39,11 @@ inatLocation$latitude = as.numeric(inatLocation$latitude)
 # add a column that says inat
 inatLocation$prov <- "inat"
 
-## combine the data frames of INAT and GBIF## 
+## combine the data frames of INAT and GBIF ## 
 milkweedCombo <- rbind(gbifLocation, inatLocation)
+
+# rename prov column to say source
+milkweedCombo$source <- milkweedCombo$prov
 
 # remove any rows where there are NAs in longitude or latitude is NA
 milkweedCombo <- na.omit(milkweedCombo)
@@ -66,48 +59,32 @@ milkweedCombo <- milkweedCombo %>% filter(longitude < -60)
 # create a csv with the combined data, includes source, longitude and latitude
 write_csv(milkweedCombo, "data/milkweedCombo.csv")
 
-## make an occurence map from the data ## 
+## SPOCC Mapping Code ## 
 
 #find the lat/long bounds of the data
-max.lat <- ceiling(max(milkweedCombo$latitude))
-min.lat <- floor(min(milkweedCombo$latitude))
-max.lon <- ceiling(max(milkweedCombo$longitude))
-min.lon <- floor(min(milkweedCombo$longitude))
+ymax <- ceiling(max(milkweedCombo$latitude))
+ymin <- floor(min(milkweedCombo$latitude))
+xmin <- ceiling(max(milkweedCombo$longitude))
+xmax <- floor(min(milkweedCombo$longitude))
 
-jpeg(file="output/pineneedleMilkweedspocc.jpg")
-data(wrld_simpl)
+source(file = "src/sdm-functions.R")
 
-#Plot the base map
-plot(wrld_simpl, 
-     xlim = c(min.lon, max.lon), # sets upper/lower x
-     ylim = c(min.lat, max.lat), # sets upper/lower y
-     axes = TRUE, 
-     col = "grey95",
-     main="Pineneedle Milkweed in US and MX",  # a title
-     sub="1950-2021" # a caption
-)
+prepared.data <- PrepareData(file = "data/milkweedCombo.csv")
 
-points(x =milkweedCombo$longitude, 
-       y = milkweedCombo$latitude, 
-       col = "blue", 
-       pch = 20, 
-       cex = 0.75)
-box()
-dev.off()
+wrld<-ggplot2::map_data("world", c("mexico"))
 
-## SPOCC Mapping Code ## 
-source("src/linaria-spocc.R")
+spocc <- ggplot(milkweedCombo) +
+  geom_point(aes(x=longitude, y=latitude, color=source), size=.5) +
+  geom_polygon(data=wrld, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
+  borders("state") +
+  coord_fixed(xlim = c(xmax, xmin), ylim = c(ymin, ymax)) +
+  scale_size_area() +
+  labs(title="Species Occurence Map of Pineneedle Milkweed") 
+
+ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 
 # SDM Mapping Code
-
 # Thank you Jeff Oliver for your code (https://github.com/jcoliver/biodiversity-sdm-lesson)
-
-### 1. Run the setup code below 
-# This installs libraries, and downloads climate data from bioclim (https://www.worldclim.org/data/bioclim.html)
-
-source(file = "src/setup.R")
-
-### 7. Use the source() command to run both files you created (one at a time)
 
 source("src/linaria-sdm-single.R")
 

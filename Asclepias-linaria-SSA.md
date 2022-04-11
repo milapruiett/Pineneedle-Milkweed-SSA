@@ -1,4 +1,6 @@
-# Species Status Assessment
+# Host Plant Information for Monarch (*Danaus plexippus: Nymphalidae*)
+
+### SSa by Moritz Kalis, Mila Pruiett, and Claire Joseph
 
 ## Species Name: Pineneedle milkweed *Asclepias linaria*
 
@@ -29,24 +31,35 @@ It is known to be a host plant for monarch butterflies, Queen Butterflies (will 
 - GBIF
 - iNaturalist
 
+## Data cleaning
+We removed all data that had
+ - 0 or NA occurences
+ - ABSENT occurence status
+ - coordinates outside continental North America
+
 ## Species Occurence Map
 
-![Occurence Map](output/MUSMXspocc.jpg)
+![Occurence Map](output/pineneedleMilkweedspocc.jpg) 
 
 #### Link to GitHub Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
 
 ## Species Distribution Model
 ### Description of SDM
-
+- The Species Distribution Model map uses bioclim data with occurence data from 1950-2021 to show the areas that are most adept to supporting Pineneedle milkweed (*Asclepias linaria*). The orange displays the species occurence data (sourced from GBIF and iNaturalist). The grey represents the areas in which Pineneedle Milkweed could theoretically grow accordng to the areas climate.
 ### Methods for SDM
-Using bioclim data
-
-Current SDM
+- To create the model we first ran the setup.R file in order to download the required packages in R studio (raster, sp, dismo, maptools, spocc) and the required climate, bioclim, and forcasting data to run the niche modeling predictions. Next, we copied "run-sdm-single.R" in the source directory and renamed it for our species (Pineneedle Milkweed) and changing the text in the appropriate spaces to descriptive names. After, we queried gbif for 'Asclepias linaria' and saved as a CSV file in data. Lastly, we ran the sdm single file that we customized which produced the species distribution model map. Thank you Jeff Oliver for the code to create the model.
 ![SDMcurrent](output/linaria-single-current-sdm.jpg)
 
-Future SDM
+### Description of Future SDM
+- The Future Species Disribution Model map uses Worldclim forcast climate data for the year 2070 based on the GFDL-ESM2G model with an RCP of 4.5 CO<sub>2</sub>. The orange points represent the current species occurences for Pineneedle Milkweed for the years 1950-2020. The grey represents the Species Disripution Model projections for the year 2070.
+### Methods for Future SDM
+- Using forcast climate data from Worldclim and the GFDL-ESM2G model 
 ![SDMfuture](output/linaria-single-future-sdm.jpg)
 
+## Summary and Key Findings
+- Pineneedle Milkweed is mostly prevalent in Mexico and Southern Arizona
+- With climate predictions for 2070, the range for the milkweed may move farther north
+- With a larger range, the species may become more prevalent in Monarch Butterfly Migration even if it is not a preferential species for laying eggs because of its relative heat tolerance in relation to a warming planet.
 
 #### Link to Github Repository [Here](https://github.com/BiodiversityDataScienceCorp/Pineneedles-main-repo)
 
