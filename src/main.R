@@ -1,7 +1,7 @@
 #creates
-  #a species occurence map for Pineneedle Milkweed
+  #a species occurence map for Pineneedle milkweed, Asclepias linaria
   #a species distribution model for the present
-  #a species distribution model for the future
+  #a species distribution model for 70 years in the future
 #Team Pineneedle (Claire, Mila, Moritz)
 #Spring 2022
 
