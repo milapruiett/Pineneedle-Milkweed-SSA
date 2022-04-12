@@ -56,6 +56,9 @@ milkweedCombo <- milkweedCombo %>% filter(latitude > 10)
 milkweedCombo <- milkweedCombo %>% filter(longitude > -130)
 milkweedCombo <- milkweedCombo %>% filter(longitude < -60)
 
+# remove duplicate entries (ie entries that are in gbif from inat)
+milkweedCombo <- milkweedCombo[!duplicated(milkweedCombo) ,  ]
+
 # create a csv with the combined data, includes source, longitude and latitude
 write_csv(milkweedCombo, "data/milkweedCombo.csv")
 
