@@ -11,8 +11,15 @@
 ################################################################################
 
 # install packages:
-required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf","tidyverse","maps")
-install.packages(required)
+install.packages("raster")
+install.packages("sp")
+install.packages("dismo")
+install.packages("maptools")
+install.packages("spocc")
+install.packages("rgdal")
+install.packages("sf")
+install.packages("tidyverse")
+install.packages("maps")
 
 # load packages:
 library("raster")
@@ -26,13 +33,13 @@ library("tidyverse")
 library("maps")
 
 # Make sure packages all installed
-successful <- required %in% rownames(installed.packages())
-unsuccessful <- required[!successful]
+  #successful <- required %in% rownames(installed.packages())
+  #unsuccessful <- required[!successful]
 
-if (length(unsuccessful) > 0) {
-  unsuccessful.string <- paste0(unsuccessful, collapse = ", ")
-  stop(paste0("One or more required packages could not be installed: ", 
-              unsuccessful.string))
+  #if (length(unsuccessful) > 0) {
+  # unsuccessful.string <- paste0(unsuccessful, collapse = ", ")
+  #  stop(paste0("One or more required packages could not be installed: ", 
+  #             unsuccessful.string))
 }
 
 # load current climate data
