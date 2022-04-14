@@ -57,7 +57,7 @@ We removed all data that had
 ![SDMfuture](output/linaria-single-future-sdm.jpg)
 
 ### Current and Future SDM in Arizona
-![SDMArizona](output/linaria-single-and-future.jpg)
+![SDMArizona](output/linaria-single-current-and-future-sdm.jpg)
 
 ## Summary and Key Findings
 - Pineneedle Milkweed is mostly prevalent in Mexico and Southern Arizona
