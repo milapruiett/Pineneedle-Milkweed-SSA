@@ -114,7 +114,7 @@ presentFuture<-ggplot(prepared.data) +
   coord_quickmap() +
   coord_fixed(xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
   labs(title="Current and Future SDM Predictions in Arizona", x="longitude", y="latitude")+ 
-  scale_fill_identity(name = 'Species Distribution Model', guide = 'legend',labels = c('Current', 'Future'))+
+  scale_fill_identity(name = 'Species Distribution Model', guide = 'legend',labels = c('Future', "Current"))+
   scale_colour_manual(name = 'Occurrences', 
                       values =c('red'='#FF5733'), labels = c('Pineneedle milkweed'))
 
