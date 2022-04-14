@@ -105,16 +105,17 @@ az<-map_data("county", "arizona")
 
 
 presentFuture<-ggplot(prepared.data) +
-  geom_tile(data = sdmRasterDF , aes(x = x, y = y), show.legend=TRUE, alpha=0.1, col="green") +  
-  geom_tile(data= sdmRasterDFfuture, aes(x=x, y=y), show.legend=TRUE, alpha=0.1, col="blue") +
+  geom_tile(data = sdmRasterDF , aes(x = x, y = y, color="Current"), show.legend=FALSE, alpha=0.1, col="green") +  
+  geom_tile(data= sdmRasterDFfuture, aes(x=x, y=y, color="Future"), show.legend=FALSE, alpha=0.1, col="blue") +
   geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE, size=2) +
   borders("state", xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
   geom_polygon(data=wrld, mapping=aes(x=long, y=lat, group = group), fill = NA, colour = "grey60") +
   geom_polygon(data=az, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
   scale_size_area() +
   coord_quickmap() +
-  coord_fixed(xlim = c(xmin, xmax), ylim = c(ymin, ymax))+
-  labs(title="Current and Future SDM Predictions in Arizona Alone", x="longitude", y="latitude")
+  coord_fixed(xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
+  labs(title="Current and Future SDM Predictions in Arizona", color="SDM") 
+  #scale_color_manual(labels=c("Current", "Future"), values = c("green", "blue"))
 
 ggsave(plot.file.sdm, presentFuture)
 
@@ -122,4 +123,3 @@ ggsave(plot.file.sdm, presentFuture)
 # Let user know analysis is done.
 message(paste0("\nAnalysis complete. Map image written to ", plot.file.sdm, "."))
 
-rm(list = ls())
