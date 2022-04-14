@@ -20,6 +20,7 @@ The following  R packages are required (these will be installed by running the s
 ## Structure
 
 + SSA.md: Species Status Assessment for Monarch Butterfly hostplant Pineneedle Milkweed
++ Run code with at least 2Gb of RAM
 + data
   + wc2-5: climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org) (_note_: this folder is not under version control, but will be created by running the setup script (`scr/setup.R`))
   + cmip5: forcast climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org). The data are for the year 2070, based on the GFDL-ESM2G model with an RCP of 4.5 CO<sub>2</sub>. For an examination of different forecast models, see [McSweeney et al. 2015](https://link.springer.com/article/10.1007/s00382-014-2418-8). (_note_: this folder is not under version control, but will be created by running the setup script (`scr/setup.R`))
