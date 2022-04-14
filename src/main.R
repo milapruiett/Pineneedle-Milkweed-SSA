@@ -92,3 +92,5 @@ ggsave("output/pineneedleMilkweedspocc.jpg", spocc)
 source("src/linaria-sdm-single.R")
 
 source("src/linaria-future-sdm-single.R")
+
+source("src/current-and-future-sdm.R")

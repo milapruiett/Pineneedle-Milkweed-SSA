@@ -76,12 +76,13 @@ sdm.raster.future <- SDMForecast(data = prepared.data)
 
 # Add small value to all raster pixels so plot is colored correctly
 sdm.raster <- sdm.raster + 0.00001
+sdm.raster.future <- sdm.raster.future + 0.00001
 
 # Determine the geographic extent of our plot
-xmin <- extent(sdm.raster)[1]
-xmax <- extent(sdm.raster)[2]
-ymin <- extent(sdm.raster)[3]
-ymax <- extent(sdm.raster)[4]
+xmin <- -115.5
+xmax <- -107
+ymin <- 30.8
+ymax <- 37.3
 
 
 
@@ -100,18 +101,20 @@ sdmRasterDF<-rasterDF %>% subset(layer>1)
 sdmRasterDFfuture<-rasterDFfuture %>% subset(layer>1)
 
 wrld<-ggplot2::map_data("world", c("mexico", "canada"))
+az<-map_data("county", "arizona")
+
 
 presentFuture<-ggplot(prepared.data) +
-  geom_tile(data = sdmRasterDF , aes(x = x, y = y), show.legend=FALSE, alpha=0.1, col="green") +  
-  geom_tile(data=sdmRasterDFfuture, aes(x=x, y=y), show.legend=FALSE, alpha=0.1, col="blue") +
-  geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE, size=0.5) +
+  geom_tile(data = sdmRasterDF , aes(x = x, y = y), show.legend=TRUE, alpha=0.1, col="green") +  
+  geom_tile(data= sdmRasterDFfuture, aes(x=x, y=y), show.legend=TRUE, alpha=0.1, col="blue") +
+  geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE, size=2) +
   borders("state", xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
   geom_polygon(data=wrld, mapping=aes(x=long, y=lat, group = group), fill = NA, colour = "grey60") +
+  geom_polygon(data=az, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
   scale_size_area() +
   coord_quickmap() +
   coord_fixed(xlim = c(xmin, xmax), ylim = c(ymin, ymax))+
-  labs(title="Species Occurence Map", color="Occurence") 
-labs(title="Current and Future SDM Predictions", x="longitude", y="latitude")
+  labs(title="Current and Future SDM Predictions in Arizona Alone", x="longitude", y="latitude")
 
 ggsave(plot.file.sdm, presentFuture)
 
