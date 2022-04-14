@@ -105,17 +105,18 @@ az<-map_data("county", "arizona")
 
 
 presentFuture<-ggplot(prepared.data) +
-  geom_tile(data = sdmRasterDF , aes(x = x, y = y, color="Current"), show.legend=FALSE, alpha=0.1, col="green") +  
-  geom_tile(data= sdmRasterDFfuture, aes(x=x, y=y, color="Future"), show.legend=FALSE, alpha=0.1, col="blue") +
-  geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE, size=2) +
+  geom_tile(data = sdmRasterDF , aes(x = x, y = y, color="Current", fill="green"), show.legend=TRUE, alpha=0.1, col="green") +  
+  geom_tile(data= sdmRasterDFfuture, aes(x=x, y=y, color="Future", fill="blue"), show.legend=TRUE, alpha=0.1, col="blue") +
+  geom_point(aes(x=lon, y=lat, color='red'),  size=1.5) +
   borders("state", xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
-  geom_polygon(data=wrld, mapping=aes(x=long, y=lat, group = group), fill = NA, colour = "grey60") +
   geom_polygon(data=az, mapping=aes(x=long, y=lat,group = group), fill = NA, colour = "grey60") +
   scale_size_area() +
   coord_quickmap() +
   coord_fixed(xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
-  labs(title="Current and Future SDM Predictions in Arizona", color="SDM") 
-  #scale_color_manual(labels=c("Current", "Future"), values = c("green", "blue"))
+  labs(title="Current and Future SDM Predictions in Arizona", x="longitude", y="latitude")+ 
+  scale_fill_identity(name = 'Species Distribution Model', guide = 'legend',labels = c('Current', 'Future'))+
+  scale_colour_manual(name = 'Occurrences', 
+                      values =c('red'='#FF5733'), labels = c('Pineneedle milkweed'))
 
 ggsave(plot.file.sdm, presentFuture)
 
