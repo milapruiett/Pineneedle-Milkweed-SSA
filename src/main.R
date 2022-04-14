@@ -5,6 +5,8 @@
 #Team Pineneedle (Claire, Mila, Moritz)
 #Spring 2022
 
+message("Attention! set your RAM to at least 2GB")
+
 source(file = "src/setup.R")
 
 ##query the data from gbif and inat, include both USA and Mexico##
@@ -94,3 +96,5 @@ source("src/linaria-sdm-single.R")
 source("src/linaria-future-sdm-single.R")
 
 source("src/current-and-future-sdm.R")
+
+message("If you got this far, we passed the class")
