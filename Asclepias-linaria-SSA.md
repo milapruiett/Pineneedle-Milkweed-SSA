@@ -28,6 +28,7 @@ It flowers in the spring and summer annually. It has small, white flowers, woody
 It is known to be a host plant for monarch butterflies, Queen Butterflies (will feed on other wildflowers instead) and other pollinators. However, it is used only occasionally due to its relative toxicity (Nabhan et al., 2015). In a study comparing *A. linaria* with *A. angustifolia*, another native milkweed to Arizona, female monarchs preferred to lay on *A. angustifolia*, had greater larvae survival rates, faster larval development, and reached a larger adult size on *A. angustifolia*. However, this leaves many other milkweed species unevaluated, with uncertaintiy as to if *A. linaria* would be preferred compared with others (Pegram and Melkonoff, 2019). Additionally, unpublished data shows that five times more honeybees, *Apis mellifera*, visited *A. linaria* than *D. plexippus* (Pegram and Melkonoff, 2019). 
 
 ## Data Sources for Occurence and Distribution Modeling:
+Sourced on April 14, 2022
 - GBIF
 - iNaturalist
 
@@ -55,6 +56,9 @@ We removed all data that had
 ### Methods for Future SDM
 - Using forcast climate data from Worldclim and the GFDL-ESM2G model 
 ![SDMfuture](output/linaria-single-future-sdm.jpg)
+
+### Current and Future SDM in Arizona
+![SDMArizona](output/linaria-single-current-and-future-sdm.jpg)
 
 ## Summary and Key Findings
 - Pineneedle Milkweed is mostly prevalent in Mexico and Southern Arizona
