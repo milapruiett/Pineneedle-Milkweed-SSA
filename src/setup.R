@@ -40,7 +40,7 @@ library("maps")
   # unsuccessful.string <- paste0(unsuccessful, collapse = ", ")
   #  stop(paste0("One or more required packages could not be installed: ", 
   #             unsuccessful.string))
-}
+
 
 # load current climate data
 if(file.exists("data")){
