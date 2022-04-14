@@ -103,7 +103,7 @@ wrld<-ggplot2::map_data("world", c("mexico", "canada"))
 
 presentFuture<-ggplot(prepared.data) +
   geom_tile(data = sdmRasterDF , aes(x = x, y = y), show.legend=FALSE, alpha=0.1, col="green") +  
-  geom_tile(data=sdmRasterDFfuture, aes(x=x, y=y), show.legend=FALSE, alpha=0.1) +
+  geom_tile(data=sdmRasterDFfuture, aes(x=x, y=y), show.legend=FALSE, alpha=0.1, col="blue") +
   geom_point(aes(x=lon, y=lat, color='red'), show.legend=FALSE, size=0.5) +
   borders("state", xlim = c(xmin, xmax), ylim = c(ymin, ymax)) +
   geom_polygon(data=wrld, mapping=aes(x=long, y=lat, group = group), fill = NA, colour = "grey60") +
