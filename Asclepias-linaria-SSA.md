@@ -56,6 +56,9 @@ We removed all data that had
 - Using forcast climate data from Worldclim and the GFDL-ESM2G model 
 ![SDMfuture](output/linaria-single-future-sdm.jpg)
 
+### Current and Future SDM in Arizona
+![SDMArizona](output/linaria-single-and-future.jpg)
+
 ## Summary and Key Findings
 - Pineneedle Milkweed is mostly prevalent in Mexico and Southern Arizona
 - With climate predictions for 2070, the range for the milkweed moves a bit farther north into Arizona and Texas
