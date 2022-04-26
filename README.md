@@ -42,3 +42,9 @@ The following  R packages are required (these will be installed by running the s
 - run the first line of code, source(file = "src/setup.R"), to install all libraries. you might have to restart R in the process
 - run the rest of the main.R document (consider runnning the last two lines of code, source "src/linaria-sdm-single.R" and source "src/linaria-future-sdm-single.R", seperately)
 - the created maps will be in the output folder
+
+## Project DOI 
+
+[![DOI](https://zenodo.org/badge/459737484.svg)](https://zenodo.org/badge/latestdoi/459737484)
+
+
